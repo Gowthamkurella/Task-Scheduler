@@ -29,7 +29,11 @@ function Login() {
           const data = await response.json();
           console.log(data);
           localStorage.setItem('token', data.token); // Store the username in local storage
-          navigate('/dashboard'); // Navigate to the dashboard
+          if (data.username === 'admin') {
+            navigate('/calls'); // Navigate to the admin calls page
+          } else {
+            navigate('/dashboard'); // Navigate to the regular user dashboard
+          } // Navigate to the dashboard
         } else {
           setError('Failed to login. Please check your credentials.');
         }

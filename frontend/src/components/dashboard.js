@@ -46,7 +46,7 @@ const Dashboard = () => {
           dueDate: task.dueDate ? new Date(task.dueDate).toLocaleDateString() : 'N/A',
         })));
       } else {
-        // Handle errors, e.g., show an alert or set an error state
+        navigate('/');
       }
     };
 
@@ -132,7 +132,7 @@ const Dashboard = () => {
   
   const handleSubmitSubtask = async () => {
     // Assuming the API expects the task ID to which the subtask belongs, and the title
-    const body = { task: selectedTaskId, title: newSubtaskTitle, status: 0 };
+    const body = { task1: selectedTaskId, title: newSubtaskTitle, status: 0 };
     const response = await fetch('http://localhost:5000/addsubtask', {
       method: 'POST',
       headers: {
@@ -239,7 +239,7 @@ const Dashboard = () => {
                     <IconButton onClick={() =>handleClickOpen(task)}><EditIcon /></IconButton>
                   </TableCell>
                   <TableCell>
-                    <IconButton onClick={() => {/* Implement view subtasks logic */}}><VisibilityIcon /></IconButton>
+                    <IconButton onClick={() => navigate(`/subtaskslist/${task._id}`)}><VisibilityIcon /></IconButton>
                   </TableCell>
                   <TableCell>
                     <IconButton onClick={() => {handleOpenSubtaskDialog(task._id)}}><AddIcon /></IconButton>
