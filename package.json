@@ -13,5 +13,9 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "@mui/styles": "^5.15.13",
+    "twilio": "^5.0.1"
   }
 }

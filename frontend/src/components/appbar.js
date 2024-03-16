@@ -34,8 +34,7 @@ const CustomAppBar = ({ username }) => {
       });
   
       if (response.ok) {
-        // Optionally reset any global state used for user data
-        // Redirect the user to the login page or home page
+        localStorage.removeItem('token');
         navigate('/');
       }
     } catch (error) {
@@ -49,7 +48,6 @@ const CustomAppBar = ({ username }) => {
         <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center' }}>
           <img src="/opeinapp.jpg" alt="Logo" style={{ maxHeight: '50px', marginRight: '20px' }} />
           <Button color="inherit" component={Link} to="/dashboard" sx={{ marginX: 1 }}>Home</Button>
-          <Button color="inherit" component={Link} to="/employeelist" sx={{ marginX: 1 }}>Calls</Button>
         </Box>
         <IconButton
           onClick={handleMenu}
