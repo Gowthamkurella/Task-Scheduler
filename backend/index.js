@@ -40,7 +40,7 @@ const auth = (req, res, next) => {
 
 app.post('/login', async (req, res) => {
   const { username, password } = req.body;
-
+  console.log(req.body);
   // Simple validation
   if (!username || !password) {
     return res.status(400).json({ message: 'Username and password are required.' });
@@ -49,6 +49,7 @@ app.post('/login', async (req, res) => {
   try {
     // Attempt to find the user by username
     const user1 = await user.findOne({ username: username });
+    console.log(user1);
     if (!user1) {
       return res.status(404).json({ message: 'User not found.' });
     }
